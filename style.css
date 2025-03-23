@@ -1,0 +1,291 @@
+/* == Global Styles == */
+:root {
+  --main-color: #2F97E2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #F4F4F4;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* == Alert Modal == */
+#alertModal {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s;
+}
+
+#alertModal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.alert-content {
+  background-color: white;
+  padding: 2rem;
+  box-shadow: 2px 3px 6px 9px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  position: fixed;
+  max-width: 400px;
+  left: 50%;
+  top: -1000px;
+  transform: translateX(-50%);
+  z-index: 999;
+  transition: top 0.1s;
+}
+
+#alertModal.active .alert-content {
+  top: 10px;
+}
+
+#alertClose {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  font-size: 2em;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+#alertClose:hover {
+  opacity: 0.6;
+}
+
+#alertBody {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.alert-text p {
+  font-size: 17px;
+  color: red;
+}
+
+/* == Header == */
+header {
+  background-color: var(--main-color);
+  text-align: center;
+  padding: 10px;
+  color: white;
+}
+
+header p {
+  font-size: 0.9em;
+  color: #ddd;
+}
+
+/* == Search Section == */
+#searchSection {
+  background-color: white;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#searchSection input {
+  padding: 10px;
+  border: 1px solid #000;
+  border-right: none;
+  outline: none;
+  transition: 0.3s;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+#searchSection input:focus {
+  outline: 0.5px solid #000;
+}
+
+#searchSection button {
+  border: none;
+  outline: none;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 12px 10px;
+  background-color: var(--main-color);
+  color: white;
+  transition: opacity 0.2s;
+}
+
+#searchSection button:hover {
+  opacity: 0.9;
+}
+
+/* == Books Container == */
+#booksContainer {
+  background-color: white;
+  margin: 10px 0;
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2em;
+}
+
+#booksContainer .bookItem {
+  position: relative;
+  width: 200px;
+  box-shadow: 2px 3px 6px 9px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+#booksContainer .bookItem:hover {
+  transform: rotate(-10deg) scale(1.1);
+}
+
+#booksContainer .bookImage {
+  max-width: 200px;
+}
+
+#booksContainer .bookImage img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+#booksContainer .bookTitle {
+  padding: 10px;
+  background-color: white;
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+  width: 100%;
+  transition: bottom 0.2s;
+}
+
+#booksContainer .bookItem:hover .bookTitle {
+  bottom: 0;
+}
+
+/* == Modal Styles for Book Details == */
+#bookModal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s;
+}
+
+#bookModal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  box-shadow: 2px 3px 6px 9px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  position: fixed;
+  max-width: 600px;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%) scale(0.9);
+  z-index: 999;
+  transition: transform 0.1s;
+}
+
+@media (max-width: 600px) {
+  .modal-content {
+    width: 100%;
+  }
+}
+
+#modalClose {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 2em;
+  color: #000;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+#modalClose:hover {
+  opacity: 0.6;
+}
+
+.modal-body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-body .image {
+  max-width: 100px;
+}
+
+.modal-body .image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.modal-body .details ul li {
+  margin: 5px 0;
+}
+
+.modal-body .details p {
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+#moreDetails {
+  padding: 5px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background-color: var(--main-color);
+  color: white;
+  transition: opacity 0.3s;
+  opacity: 0.8;
+}
+
+#moreDetails:hover {
+  opacity: 1;
+}
+
+footer {
+  background-color: #282c34;
+  color: #fff;
+  padding: 1.5rem 0;
+  margin-top: 20px;
+  text-align: center;
+}
+
+footer a {
+  color: #61dafb;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}

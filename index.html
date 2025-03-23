@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Books API Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Alert Modal for Errors -->
+  <div id="alertModal">
+    <div class="alert-content">
+      <span id="alertClose">&times;</span>
+      <div id="alertBody">
+        <div class="alert-text">
+          <p id="alertMessage"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <h1>Books API Demo</h1>
+    <p>
+      This project fetches books from the <strong>Google Books API</strong>.
+    </p>
+  </header>
+
+  <!-- Search Section -->
+  <div id="searchSection">
+    <input type="search" id="searchInput" placeholder="Search For A Book" />
+    <button id="searchButton">Apply</button>
+  </div>
+
+  <div id="booksContainer">
+    <!-- Books will be displayed here -->
+  </div>
+
+  <!-- Book Details Modal -->
+  <div id="bookModal" class="modal">
+    <div class="modal-content">
+      <span id="modalClose">&times;</span>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+      &copy; 2025 Books API Demo. All rights reserved. Created by
+      <a href="https://github.com/bilalmagdy1" target="_blank">BilalMaGdy1</a>
+    </p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
